@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from './Comment';
 
 /*
 
@@ -25,7 +26,7 @@ const CommentSection = (props) => {
     <div>
       <h1>CommentSection</h1>
       {/* Render a new comment for all props.comment */}
-      {props.comments.map(comment => <span key={comment.id}>{comment.text}</span>)}
+      {props.comments.map(comment => <Comment key={comment.id} {...comment} />)}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
+import Post from './Post';
 
 /*
 
@@ -33,12 +34,11 @@ import CommentSection from '../CommentSection/CommentSection';
 
 const PostContainer = (props) => {
   return (
-    <div>
+    <div className="PostContainer">
+      {props.posts.map(post => <Post {...post} key={post.id} />)}
+
       <img src={props.thumbnailUrl} alt={`${props.username}`}/>
       <img src={props.imageUrl} alt={`by ${props.username}`}/>
-
-      {/* Render comment section with props.comments */}
-      <CommentSection comments={props.comments} />
     </div>
   );
 }
