@@ -2,9 +2,18 @@ import React from 'react';
 
 const SearchBar = (props) => {
   return (
-    <div>
-      <h1>SearchBar</h1>
-    </div>
+    <nav class="SearchBar">
+      <div>
+        <span>icon</span>
+        <span>logo</span>
+      </div>
+      <input type="text" placeholder="search" />
+      <div>
+        <span>icon</span>
+        <span>icon</span>
+        <span>icon</span>
+      </div>
+    </nav>
   );
 }
  
