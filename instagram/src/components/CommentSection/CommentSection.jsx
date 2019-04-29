@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from './Comment';
+import './CommentSection.scss';
 
 /*
 
@@ -23,9 +24,7 @@ import Comment from './Comment';
 
 const CommentSection = (props) => {
   return (
-    <div>
-      <h1>CommentSection</h1>
-      {/* Render a new comment for all props.comment */}
+    <div className="CommentSection">
       {props.comments.map(comment => <Comment key={comment.id} {...comment} />)}
     </div>
   );

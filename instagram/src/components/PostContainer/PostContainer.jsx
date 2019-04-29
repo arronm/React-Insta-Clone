@@ -1,6 +1,6 @@
 import React from 'react';
-import CommentSection from '../CommentSection/CommentSection';
 import Post from './Post';
+import './PostContainer.scss';
 
 /*
 

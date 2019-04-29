@@ -1,0 +1,14 @@
+.CommentSection {
+  position: relative;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-start;
+}
+.Comment {
+  display: block;
+
+  &__name {
+    font-weight: 600;
+    margin-right: 10px;
+  }
+}
