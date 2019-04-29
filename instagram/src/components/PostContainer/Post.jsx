@@ -21,7 +21,6 @@ const Post = (props) => {
         </div>
         <span className="likes">{`${props.likes} likes`}</span>
       </div>
-      {/* Render comment section with props.comments */}
       <CommentSection comments={props.comments} timestamp={props.timestamp} />
     </article>
   );

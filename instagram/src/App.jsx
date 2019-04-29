@@ -9,9 +9,6 @@ function App() {
     <div className="App">
       <SearchBar />
       <PostContainer posts={data} />
-
-      {/* Map over posts and generate PostContainer */}
-      {/* {data.map(post => <PostContainer {...post} key={post.id} />)} */}
     </div>
   );
 }
