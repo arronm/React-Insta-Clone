@@ -21,12 +21,11 @@ import React from 'react';
 */
 
 const CommentSection = (props) => {
-  console.log(props);
   return (
     <div>
-      {/* <h1>CommentSection</h1> */}
+      <h1>CommentSection</h1>
       {/* Render a new comment for all props.comment */}
-      {props.comments.map(comment => <span>{comment.text}</span>)}
+      {props.comments.map((comment, index) => <span key={index}>{comment.text}</span>)}
     </div>
   );
 }

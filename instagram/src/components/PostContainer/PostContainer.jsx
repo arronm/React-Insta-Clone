@@ -32,10 +32,10 @@ import CommentSection from '../CommentSection/CommentSection';
 */
 
 const PostContainer = (props) => {
-  console.log(props)
   return (
     <div>
-      <h1>PostContainer</h1>
+      <img src={props.post.thumbnailUrl} alt={`${props.post.username}`}/>
+      <img src={props.post.imageUrl} alt={`by ${props.post.username}`}/>
 
       {/* Render comment section with props.comments */}
       <CommentSection comments={props.post.comments} />
