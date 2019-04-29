@@ -29,6 +29,39 @@
         margin-right: 10px;
       }
     }
+
+    .like-box {
+      margin-left: 16px;
+      display: block;
+
+      .icons {
+        display: flex;
+
+        span {
+          background-image: url('../../assets/insta-sprites.png');
+          background-repeat: no-repeat;
+          display: block;
+          width: 24px;
+          height: 24px;
+          display: block;
+          margin: 8px;
+        }
+
+        &__heart {
+          background-size: 282px 273px;
+          background-position: -50px -199px;
+        }
+
+        &__comment {
+          background-size: 282px 273px;
+          background-position: -183px -50px;
+        }
+      }
+
+      .likes {
+        font-weight: 600;
+      }
+    }
   }
 }
 

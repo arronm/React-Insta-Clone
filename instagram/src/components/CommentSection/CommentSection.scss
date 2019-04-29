@@ -1,11 +1,33 @@
 .CommentSection {
-  position: relative;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+
+  .Comments {
+    position: relative;
+    padding: 16px;
+  }
+
+  .comment-box {
+    border: none;
+    border-top: solid 1px #dbdbdb;
+    // border-radius: 3px;
+    background: #fcfcfc;
+    color: #262626;
+    outline: 0;
+    padding: 3px 10px 3px 15px;
+    z-index: 2;
+    height: 60px;
+    margin: 10px 16px;
+  }
+
+  .timestamp {
+    margin-left: 16px;
+  }
 }
+
 .Comment {
   display: block;
+  margin: 10px 0;
 
   &__name {
     font-weight: 600;

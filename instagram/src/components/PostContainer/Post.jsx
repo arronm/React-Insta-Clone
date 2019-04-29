@@ -14,8 +14,15 @@ const Post = (props) => {
       <div className="image">
         <img src={props.imageUrl} alt={`by ${props.username}`} />
       </div>
+      <div className="like-box">
+        <div className="icons">
+          <span className="icons__heart"></span>
+          <span className="icons__comment"></span>
+        </div>
+        <span className="likes">{`${props.likes} likes`}</span>
+      </div>
       {/* Render comment section with props.comments */}
-      <CommentSection comments={props.comments} />
+      <CommentSection comments={props.comments} timestamp={props.timestamp} />
     </article>
   );
 }
