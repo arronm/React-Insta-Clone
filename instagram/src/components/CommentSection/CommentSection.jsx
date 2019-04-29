@@ -1,5 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
+import PropTypes from 'prop-types';
 import Comment from './Comment';
 import './CommentSection.scss';
 
@@ -17,6 +18,14 @@ const CommentSection = (props) => {
   );
 }
 
-
+CommentSection.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      username: PropTypes.string,
+      text: PropTypes.string,
+    })
+  )
+}
  
 export default CommentSection;

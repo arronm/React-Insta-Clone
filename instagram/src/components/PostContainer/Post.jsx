@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.scss';
 
@@ -24,6 +25,14 @@ const Post = (props) => {
       <CommentSection comments={props.comments} timestamp={props.timestamp} />
     </article>
   );
+}
+
+Post.propTypes = {
+  thumbnailUrl: PropTypes.string,
+  username: PropTypes.string,
+  imageUrl: PropTypes.string,
+  likes: PropTypes.number,
+  timestamp: PropTypes.string,
 }
  
 export default Post;
