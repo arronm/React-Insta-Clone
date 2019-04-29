@@ -32,7 +32,6 @@ import CommentSection from '../CommentSection/CommentSection';
 */
 
 const PostContainer = (props) => {
-  console.log(props)
   return (
     <div>
       <img src={props.thumbnailUrl} alt={`${props.username}`}/>

@@ -10,8 +10,7 @@ function App() {
       <SearchBar />
 
       {/* Map over posts and generate PostContainer */}
-      {console.log(data)}
-      {data.map(data => <PostContainer {...data} key={data.id} />)}
+      {data.map(post => <PostContainer {...post} key={post.id} />)}
     </div>
   );
 }
