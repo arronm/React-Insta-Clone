@@ -6,9 +6,16 @@ import './PostContainer.scss';
 const PostContainer = (props) => {
   return (
     <div className="PostContainer">
-      {
-        props.posts.length > 0
+      { // If we need all posts
+        props.posts.length > 0 && !props.filter
         ? props.posts.map(post => <Post {...post} key={post.id} />)
+        : null
+      }
+      { // If we need filtered posts
+        props.posts.length > 0 && props.filter
+        ? props.posts
+            .filter(post => post.username === props.filter)
+            .map(post => <Post {...post} key={post.id} />)
         : null
       }
     </div>

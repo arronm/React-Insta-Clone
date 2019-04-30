@@ -9,6 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [],
+      search: '',
+      filter: '',
     }
   }
 
@@ -22,11 +24,28 @@ class App extends Component {
     }, 300);
   }
 
+  handleOnSearch = () => {
+    this.setState({
+      filter: this.state.search,
+      search: '',
+    });
+  }
+
+  handleSearchInput = (value) => {
+    this.setState({
+      search: value,
+    });
+  }
+
   render() { 
     return (
       <div className="App">
-        <SearchBar />
-        <PostContainer posts={this.state.posts} />
+        <SearchBar
+          handleOnSearch={this.handleOnSearch}
+          handleSearchInput={this.handleSearchInput}
+          search={this.state.search}
+        />
+        <PostContainer posts={this.state.posts} filter={this.state.filter} />
       </div>
     );
   }
