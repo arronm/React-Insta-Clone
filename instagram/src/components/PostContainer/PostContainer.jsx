@@ -6,7 +6,11 @@ import './PostContainer.scss';
 const PostContainer = (props) => {
   return (
     <div className="PostContainer">
-      {props.posts.map(post => <Post {...post} key={post.id} />)}
+      {
+        props.posts.length > 0
+        ? props.posts.map(post => <Post {...post} key={post.id} />)
+        : null
+      }
     </div>
   );
 }
