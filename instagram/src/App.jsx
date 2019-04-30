@@ -14,13 +14,12 @@ class App extends Component {
 
   componentDidMount() {
     // Set our data here (timeout to simulate api call)
-    console.log(data);
     setTimeout(() => {
       this.setState({
         ...this.state,
         posts: data,
       });
-    });
+    }, 300);
   }
 
   render() { 
