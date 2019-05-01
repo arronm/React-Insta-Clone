@@ -35,7 +35,7 @@ const SearchBar = (props) => {
         <div className="nav">
           <span className="nav__discover"></span>
           <span className="nav__activity"></span>
-          <span className="nav__profile"></span>
+          <span className="nav__profile" onClick={props.handleLogOut}></span>
         </div>
       </section>
     </header>

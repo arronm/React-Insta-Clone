@@ -11,7 +11,13 @@ class Login extends Component {
 
   handleLogin = (event) => {
     event.preventDefault();
-    window.localStorage.setItem('user', this.state.username)
+    this.props.handleLogin(this.state.username);
+
+    this.setState({
+      ...this.state,
+      username: '',
+      password: '',
+    });
   }
 
   handleOnChange = (event) => {
@@ -23,7 +29,6 @@ class Login extends Component {
 
   render() {
     return (
-      // TODO: Turn these into controlled inputs
       <form onSubmit={this.handleLogin}>
         <input
           type="text"

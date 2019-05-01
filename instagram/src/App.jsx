@@ -6,7 +6,7 @@ import PostContainer from './components/PostContainer/PostContainer';
 import data from './dummy-data';
 import Login from './components/Login/Login';
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostContainer);
+const ComponentFromWithAuthenticate = withAuthenticate(PostContainer)(Login);
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class App extends Component {
       posts: [],
       search: '',
       filter: '',
+      user: '',
     }
   }
 
@@ -24,7 +25,9 @@ class App extends Component {
       this.setState({
         ...this.state,
         posts: data,
+        user: window.localStorage.getItem('user') || '',
       });
+      console.log('this.state :', this.state);
     }, 300);
   }
 
@@ -47,14 +50,31 @@ class App extends Component {
     });
   }
 
+  handleLogOut = () => {
+    console.log('log this mf out');
+    window.localStorage.removeItem('user');
+    this.setState({
+      ...this.state,
+      user: '',
+    });
+  }
+
+  handleLogin = (user) => {
+    window.localStorage.setItem('user', user);
+    this.setState({
+      ...this.state,
+      user: user,
+    });
+  }
+
   render() { 
     return (
       <div className="App">
-        <Login />
         <SearchBar
           handleOnSearch={this.handleOnSearch}
           handleSearchInput={this.handleSearchInput}
           search={this.state.search}
+          handleLogOut={this.handleLogOut}
         />
         { this.state.filter
           && <span
@@ -62,7 +82,12 @@ class App extends Component {
               onClick={this.handleResetSearch}>showing results for: {this.state.filter}</span>
         }
         {/* <PostContainer posts={this.state.posts} filter={this.state.filter} /> */}
-        <ComponentFromWithAuthenticate posts={this.state.posts} filter={this.state.filter} />
+        <ComponentFromWithAuthenticate
+          posts={this.state.posts}
+          filter={this.state.filter}
+          user={this.state.user}
+          handleLogin={this.handleLogin}
+        />
       </div>
     );
   }
