@@ -4,6 +4,7 @@ import withAuthenticate from './components/authentication/withAuthenticate';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import data from './dummy-data';
+import Login from './components/Login/Login';
 
 const ComponentFromWithAuthenticate = withAuthenticate(PostContainer);
 
@@ -49,6 +50,7 @@ class App extends Component {
   render() { 
     return (
       <div className="App">
+        <Login />
         <SearchBar
           handleOnSearch={this.handleOnSearch}
           handleSearchInput={this.handleSearchInput}
