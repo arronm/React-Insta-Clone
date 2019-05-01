@@ -27,7 +27,6 @@ class App extends Component {
         posts: data,
         user: window.localStorage.getItem('user') || '',
       });
-      console.log('this.state :', this.state);
     }, 300);
   }
 
@@ -51,7 +50,6 @@ class App extends Component {
   }
 
   handleLogOut = () => {
-    console.log('log this mf out');
     window.localStorage.removeItem('user');
     this.setState({
       ...this.state,
