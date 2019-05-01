@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './App.scss';
+import withAuthenticate from './components/authentication/withAuthenticate';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import data from './dummy-data';
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostContainer);
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +40,12 @@ class App extends Component {
     });
   }
 
+  handleResetSearch = () => {
+    this.setState({
+      filter: '',
+    });
+  }
+
   render() { 
     return (
       <div className="App">
@@ -45,7 +54,13 @@ class App extends Component {
           handleSearchInput={this.handleSearchInput}
           search={this.state.search}
         />
-        <PostContainer posts={this.state.posts} filter={this.state.filter} />
+        { this.state.filter
+          && <span
+              className="reset-search"
+              onClick={this.handleResetSearch}>showing results for: {this.state.filter}</span>
+        }
+        {/* <PostContainer posts={this.state.posts} filter={this.state.filter} /> */}
+        <ComponentFromWithAuthenticate posts={this.state.posts} filter={this.state.filter} />
       </div>
     );
   }
