@@ -8,7 +8,7 @@ const PostContainer = (props) => {
     <div className="PostContainer">
       { // If we need all posts
         props.posts.length > 0 && !props.filter
-        ? props.posts.map(post => <Post {...post} key={post.id} />)
+        ? props.posts.map(post => <Post {...post} key={post.id} user={props.user} />)
         : null
       }
       { // If we need filtered posts

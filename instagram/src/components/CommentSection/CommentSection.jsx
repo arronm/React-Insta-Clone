@@ -9,7 +9,7 @@ class CommentSection extends Component {
     super(props);
     this.state = {
       comments: this.props.comments,
-      username: 'arronm',
+      username: this.props.user,
       input: '',
     }
   }

@@ -41,7 +41,7 @@ class Post extends Component {
           </div>
           <span className="likes">{`${this.state.likes} likes`}</span>
         </div>
-        <CommentSection comments={this.state.comments} timestamp={this.state.timestamp} />
+        <CommentSection comments={this.state.comments} timestamp={this.state.timestamp} user={this.props.user} />
       </article>
     );
   }
