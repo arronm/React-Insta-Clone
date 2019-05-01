@@ -79,7 +79,6 @@ class App extends Component {
               className="reset-search"
               onClick={this.handleResetSearch}>showing results for: {this.state.filter}</span>
         }
-        {/* <PostContainer posts={this.state.posts} filter={this.state.filter} /> */}
         <ComponentFromWithAuthenticate
           posts={this.state.posts}
           filter={this.state.filter}
