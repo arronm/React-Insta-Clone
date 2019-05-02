@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
 import './App.scss';
 import withAuthenticate from './components/authentication/withAuthenticate';
@@ -6,8 +7,10 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import data from './dummy-data';
 import Login from './components/Login/Login';
+import SinglePost from './components/PostContainer/SinglePost';
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostContainer)(Login);
+const PostContainerFromWithAuthenticate = withAuthenticate(PostContainer)(Login);
+const SinglePostFromWithAuthenticate = withAuthenticate(SinglePost)(Login);
 
 const StyledApp = styled.div`
   display: flex;
@@ -102,12 +105,29 @@ class App extends Component {
         { this.state.filter
           && <ResetSearch onClick={this.handleResetSearch}>showing results for: {this.state.filter}</ResetSearch>
         }
-        <ComponentFromWithAuthenticate
-          posts={this.state.posts}
-          filter={this.state.filter}
-          user={this.state.user}
-          handleLogin={this.handleLogin}
-        />
+        <Router>
+          <Route path="/"
+            exact
+            render={(props) => (
+              <PostContainerFromWithAuthenticate
+              posts={this.state.posts}
+              filter={this.state.filter}
+              user={this.state.user}
+              handleLogin={this.handleLogin}
+            />
+            )} />
+          <Route path="/:id"
+            render={(props) => (
+              <SinglePostFromWithAuthenticate
+                user={this.state.user}
+                handleLogin={this.handleLogin}
+                post={
+                  this.state.posts.filter(post => post.id === props.match.params.id)[0]
+                }
+              />
+            )}
+          />
+        </Router>
       </StyledApp>
     );
   }

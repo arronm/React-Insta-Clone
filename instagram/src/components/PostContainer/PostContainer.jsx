@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Post from './Post';
@@ -17,7 +18,11 @@ const PostContainer = (props) => {
     <StyledPostContainer>
       { // If we need all posts
         props.posts.length > 0 && !props.filter
-        ? props.posts.map(post => <Post {...post} key={post.id} user={props.user} />)
+        ? props.posts.map(post => (
+          <Link to={`/${post.id}`}>
+            <Post {...post} key={post.id} user={props.user} />
+          </Link>
+        ))
         : null
       }
       { // If we need filtered posts
