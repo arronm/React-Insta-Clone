@@ -1,8 +1,35 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import './CommentSection.scss';
+
+const StyledCommentSection = styled.div`
+display: flex;
+  flex-direction: column;
+`;
+
+const Comments = styled.div`
+position: relative;
+    padding: 16px;
+`;
+
+const Timestamp = styled.div`
+margin-left: 16px;
+`;
+
+const CommentBox = styled.input`
+border: none;
+    border-top: solid 1px #dbdbdb;
+    background: #fcfcfc;
+    color: #262626;
+    outline: 0;
+    padding: 3px 10px 3px 15px;
+    z-index: 2;
+    height: 60px;
+    margin: 10px 16px;
+`;
 
 class CommentSection extends Component {
   constructor(props) {
@@ -37,20 +64,19 @@ class CommentSection extends Component {
 
   render() { 
     return (
-      <div className="CommentSection">
-        <div className="Comments">
+      <StyledCommentSection>
+        <Comments>
           {
             this.state.comments.length
             ? this.state.comments.map(comment => <Comment key={comment.id} {...comment} />)
             : null
           }
-        </div>
-        <div className="timestamp">
+        </Comments>
+        <Timestamp>
           <Moment parse="MMMM Do YYYY, hh:mm:ss a" fromNow>{this.props.timestamp}</Moment>
-        </div>
+        </Timestamp>
         <form onSubmit={this.addNewComment}>
-          <input
-            className="comment-box"
+          <CommentBox
             type="text"
             placeholder="Add a comment..."
             value={this.state.value}
@@ -58,7 +84,7 @@ class CommentSection extends Component {
             name="input"
           />
         </form>
-      </div>
+      </StyledCommentSection>
     );
   }
 }

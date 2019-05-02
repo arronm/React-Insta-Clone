@@ -1,13 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import './CommentSection.scss';
 
+const StyledComment = styled.span`
+  display: block;
+  margin: 10px 0;
+`;
+
+const CommentName = styled.span`
+  font-weight: 600;
+  margin-right: 10px;
+`;
+
 const Comment = (props) => {
   return (
-    <span className="Comment">
-      <span className="Comment__name">{props.username}</span>
-      <span className="Comment__text">{props.text}</span>
-    </span>
+    <StyledComment>
+      <CommentName>{props.username}</CommentName>
+      <span>{props.text}</span>
+    </StyledComment>
   );
 }
 
