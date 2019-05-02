@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import './App.scss';
 import withAuthenticate from './components/authentication/withAuthenticate';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -7,6 +8,30 @@ import data from './dummy-data';
 import Login from './components/Login/Login';
 
 const ComponentFromWithAuthenticate = withAuthenticate(PostContainer)(Login);
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f5f5;
+  min-height: 100vh;  
+`;
+
+const ResetSearch = styled.span`
+  font-size: 10px;
+  width: 100%;
+  cursor: pointer;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:after {
+    content: "×";
+    font-size: 20px;
+    line-height: 14px;
+  }
+`;
 
 class App extends Component {
   constructor(props) {
@@ -67,7 +92,7 @@ class App extends Component {
 
   render() { 
     return (
-      <div className="App">
+      <StyledApp>
         <SearchBar
           handleOnSearch={this.handleOnSearch}
           handleSearchInput={this.handleSearchInput}
@@ -75,9 +100,7 @@ class App extends Component {
           handleLogOut={this.handleLogOut}
         />
         { this.state.filter
-          && <span
-              className="reset-search"
-              onClick={this.handleResetSearch}>showing results for: {this.state.filter}</span>
+          && <ResetSearch onClick={this.handleResetSearch}>showing results for: {this.state.filter}</ResetSearch>
         }
         <ComponentFromWithAuthenticate
           posts={this.state.posts}
@@ -85,7 +108,7 @@ class App extends Component {
           user={this.state.user}
           handleLogin={this.handleLogin}
         />
-      </div>
+      </StyledApp>
     );
   }
 }
