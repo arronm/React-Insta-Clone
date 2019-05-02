@@ -1,7 +1,63 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.scss';
+
+const StyledPost = styled.article`
+  background: #fcfcfc;
+  border: solid 1px #dbdbdb;
+  border-radius: 3px;
+  color: #262626;
+  margin-bottom: 60px;
+`;
+
+const User = styled.header`
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  padding: 30px;
+`;
+
+const UserThumbnail = styled.img`
+  height: 34px;
+  width: 34px;
+  margin-right: 10px;
+`;
+const UserName = styled.span`
+
+`;
+
+const PostImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
+const LikeBox = styled.div`
+  margin-left: 16px;
+  display: block;
+`;
+const Icons = styled.div`
+  display: flex;
+`;
+const Icon = styled.span`
+background-image: url('/static/media/insta-sprites.2950dbd4.png');
+  background-repeat: no-repeat;
+  display: block;
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: 8px;
+  background-size: 282px 273px;
+`;
+const HeartIcon = styled(Icon)`
+  background-position: -50px -199px;
+`;
+const CommentIcon = styled(Icon)`
+  background-position: -183px -50px;
+`;
+const Likes = styled.span`
+  font-weight: 600;
+`;
 
 class Post extends Component {
   constructor(props) {
@@ -24,25 +80,25 @@ class Post extends Component {
 
   render() { 
     return (
-      <article className="Post">
-        <header className="user">
-          <span className="user__thumbnail">
-            <img src={this.state.thumbnailUrl} alt={this.state.username}/>
+      <StyledPost>
+        <User>
+          <span>
+            <UserThumbnail src={this.state.thumbnailUrl} alt={this.state.username}/>
           </span>
-          <span className="user__name">{this.state.username}</span>
-        </header>
-        <div className="image">
-          <img src={this.state.imageUrl} alt={`by ${this.state.username}`} />
+          <span>{this.state.username}</span>
+        </User>
+        <div>
+          <PostImage src={this.state.imageUrl} alt={`by ${this.state.username}`} />
         </div>
-        <div className="like-box">
-          <div className="icons">
-            <span className="icons__heart" onClick={this.handleLike}></span>
-            <span className="icons__comment"></span>
-          </div>
-          <span className="likes">{`${this.state.likes} likes`}</span>
-        </div>
+        <LikeBox>
+          <Icons>
+            <HeartIcon onClick={this.handleLike} />
+            <CommentIcon />
+          </Icons>
+          <Likes>{`${this.state.likes} likes`}</Likes>
+        </LikeBox>
         <CommentSection comments={this.state.comments} timestamp={this.state.timestamp} user={this.props.user} />
-      </article>
+      </StyledPost>
     );
   }
 }

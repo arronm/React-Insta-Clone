@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Post from './Post';
 import './PostContainer.scss';
 
+const StyledPostContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  padding-top: 60px;
+`;
+
 const PostContainer = (props) => {
   return (
-    <div className="PostContainer">
+    <StyledPostContainer>
       { // If we need all posts
         props.posts.length > 0 && !props.filter
         ? props.posts.map(post => <Post {...post} key={post.id} user={props.user} />)
@@ -18,7 +27,7 @@ const PostContainer = (props) => {
             .map(post => <Post {...post} key={post.id} />)
         : null
       }
-    </div>
+    </StyledPostContainer>
   );
 }
 
