@@ -13,8 +13,8 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [],
-      search: '',
-      filter: '',
+      search: '', // controlled input value
+      filter: '', // on submit, set this === search
       user: '',
     }
   }
