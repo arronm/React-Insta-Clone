@@ -1,0 +1,67 @@
+.PostContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  padding-top: 60px;
+
+  .Post {
+    background: #fcfcfc;
+    border: solid 1px #dbdbdb;
+    border-radius: 3px;
+    color: #262626;
+    margin-bottom: 60px;
+
+    .image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      padding: 30px;
+    
+      &__thumbnail img {
+        height: 34px;
+        width: 34px;
+        margin-right: 10px;
+      }
+    }
+
+    .like-box {
+      margin-left: 16px;
+      display: block;
+
+      .icons {
+        display: flex;
+
+        span {
+          background-image: url('../../assets/insta-sprites.png');
+          background-repeat: no-repeat;
+          display: block;
+          width: 24px;
+          height: 24px;
+          display: block;
+          margin: 8px;
+        }
+
+        &__heart {
+          background-size: 282px 273px;
+          background-position: -50px -199px;
+        }
+
+        &__comment {
+          background-size: 282px 273px;
+          background-position: -183px -50px;
+        }
+      }
+
+      .likes {
+        font-weight: 600;
+      }
+    }
+  }
+}
+

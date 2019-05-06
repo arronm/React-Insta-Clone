@@ -1,0 +1,88 @@
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  background: #fcfcfc;
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  max-width: 1010px;
+  justify-content: space-between;
+  width: 100%;
+  height: 75px;
+  
+  .logo {
+    display: flex;
+
+    span {
+      background-image: url('../../assets/insta-sprites.png');
+      background-repeat: no-repeat;
+    }
+    
+    &__icon {
+      width: 24px;
+      height: 24px;
+      background-size: 282px 273px;
+      background-position: 0 -174px;
+    }
+
+    &__separator {
+      background-color: #262626;
+      height: 28px;
+      margin: 0 16px;
+      width: 1px;
+    }
+
+    &__name {
+      height: 29px;
+      width: 103px;
+      background-size: 282px 273px;
+      background-position: 0 -144px;
+    }
+  }
+
+  .search {
+    &__input {
+      border: solid 1px #dbdbdb;
+      border-radius: 3px;
+      color: #262626;
+      outline: 0;
+      padding: 3px 10px 3px 15px;
+      z-index: 2;
+    }
+  }
+
+  .nav {
+    display: flex;
+    padding-left: 24px;
+
+    span {
+      width: 24px;
+      height: 24px;
+      background-image: url('../../assets/insta-sprites.png');
+      background-repeat: no-repeat;
+      display: block;
+    }
+
+    &__discover {
+      background-size: 282px 273px;
+      background-position: -258px 0;
+    }
+
+    &__activity {
+      background-size: 282px 273px;
+      background-position: -50px -199px;
+      margin-left: 30px;
+    }
+    
+    &__profile {
+      background-size: 282px 273px;
+      background-position: -208px -75px;
+      margin-left: 30px;
+      cursor: pointer;
+    }
+  }
+}
